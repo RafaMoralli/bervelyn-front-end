@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Cormorant Garamond:Italic';
+  src: url('https://static.figma.com/font/CormorantGaramond-Italic_wght__1') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cormorant Garamond:Light';
+  src: url('https://static.figma.com/font/CormorantGaramond_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Cormorant Garamond:Regular';
+  src: url('https://static.figma.com/font/CormorantGaramond_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cormorant Garamond:SemiBold';
+  src: url('https://static.figma.com/font/CormorantGaramond_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Parisienne:Regular';
+  src: url('https://static.figma.com/font/Parisienne-Regular_1') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk:Bold';
+  src: url('https://static.figma.com/font/SchibstedGrotesk_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk:Italic';
+  src: url('https://static.figma.com/font/SchibstedGrotesk-Italic_wght__1') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk:Medium';
+  src: url('https://static.figma.com/font/SchibstedGrotesk_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk:Regular';
+  src: url('https://static.figma.com/font/SchibstedGrotesk_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk:SemiBold';
+  src: url('https://static.figma.com/font/SchibstedGrotesk_wght__1') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@import 'tailwindcss';
+
+/* Scroll animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-animate-delay="1"] { transition-delay: 0.08s; }
+[data-animate-delay="2"] { transition-delay: 0.18s; }
+[data-animate-delay="3"] { transition-delay: 0.28s; }
+[data-animate-delay="4"] { transition-delay: 0.38s; }
+[data-animate-delay="5"] { transition-delay: 0.48s; }
+
+/* Scrollbar hide */
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+
+/* Section title hover underline */
+.section-title-link {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.section-title-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-title-link:hover::after { width: 100%; }
+.section-title-link:hover { opacity: 0.75; }
